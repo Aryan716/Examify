@@ -233,7 +233,8 @@ const ProctoringDashboard = () => {
                                                             ?.filter(screenshot => screenshot.imageUrl && screenshot.imageUrl.startsWith('/uploads/'))
                                                             .slice(-6)
                                                             .map((screenshot, sIndex) => {
-                                                                const imgUrl = `http://localhost:5000${screenshot.imageUrl}`;
+                                                                const baseUrl = (import.meta.env.VITE_API_URL || "http://localhost:5000/api").replace(/\/api$/, '');
+                                                                const imgUrl = `${baseUrl}${screenshot.imageUrl}`;
                                                                 console.log('Screenshot URL:', imgUrl, screenshot);
                                                                 return (
                                                                     <div key={sIndex} className="relative">

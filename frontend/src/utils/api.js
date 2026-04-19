@@ -1,7 +1,8 @@
 // src/utils/api.js
 import axios from "axios";
 
-export const API_URL = "http://localhost:5000/api"; // change if deployed
+export const API_URL =
+  import.meta.env.VITE_API_URL || "http://localhost:5000/api";
 
 const api = axios.create({
   baseURL: API_URL,
